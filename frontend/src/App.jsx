@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-const API_BASE_URL = 'http://localhost:8080/api/cards';
+const API_BASE_URL = 'http://localhost:8081/api/cards';
 
 function App() {
   const [cards, setCards] = useState([]);

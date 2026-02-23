@@ -1,11 +1,13 @@
 package com.mikkelpedersen.pokemonmanager;
 
-import lombok.RequiredArgsConstructor;
+import java.io.IOException;
+import java.util.List;
+
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import java.io.IOException;
-import java.util.List;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -40,11 +42,16 @@ public class PokemonCardService {
             card.setImage(imageFile.getBytes());
         }
 
+        // ensure dateAdded is set when saving (Mongo doesn't have JPA @PrePersist)
+        if (card.getDateAdded() == null) {
+            card.setDateAdded(java.time.LocalDate.now());
+        }
+
         return repository.save(card);
     }
 
     // Delete a card by ID
-    public void deleteCard(Long id) {
+    public void deleteCard(String id) {
         repository.deleteById(id);
     }
 }

@@ -27,7 +27,7 @@ A modern, responsive web application for managing your Pokemon card collection. 
 
 - Node.js (v16 or higher recommended)
 - npm or yarn
-- Backend API running on `http://localhost:8080` (see `../backend` directory)
+- Backend API running on `http://localhost:8081` (see `../backend` directory)
 
 ## 🚀 Getting Started
 
@@ -70,10 +70,10 @@ npm run lint
 
 ## 🔌 API Configuration
 
-The frontend connects to the backend API at `http://localhost:8080/api/cards`. If your backend runs on a different port or host, update the `API_BASE_URL` constant in `src/App.jsx`:
+The frontend connects to the backend API at `http://localhost:8081/api/cards`. If your backend runs on a different port or host, update the `API_BASE_URL` constant in `src/App.jsx`:
 
 ```javascript
-const API_BASE_URL = 'http://localhost:8080/api/cards';
+const API_BASE_URL = 'http://localhost:8081/api/cards';
 ```
 
 ## 📁 Project Structure
@@ -106,12 +106,14 @@ frontend/
 ### State Management
 
 The application uses React hooks for state management:
+
 - `useState` for local component state
 - `useEffect` for data fetching and search filtering
 
 ## 🖼️ Image Handling
 
 Card images are:
+
 - Uploaded as files through the form
 - Sent to the backend as multipart/form-data
 - Stored in the database as byte arrays
@@ -120,6 +122,7 @@ Card images are:
 ## 🌐 Browser Support
 
 Modern browsers with ES6+ support:
+
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
